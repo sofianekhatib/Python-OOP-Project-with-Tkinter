@@ -1,0 +1,123 @@
+STEP 1 — PROJECT INITIALIZATION
+│
+├── Create GYM_SYSTEM/
+│   ├── main.py
+│   ├── models/
+│   ├── controllers/
+│   ├── views/
+│   ├── utils/
+│   └── database/
+│
+└── Create JSON files:
+    ├── members.json      → []
+    ├── coaches.json      → []
+    └── programs.json     → []
+
+STEP 2 — MODELS (Pure OOP First)
+│
+├── models/
+│   ├── person.py
+│   │     ├── private attributes
+│   │     ├── getters/setters
+│   │     └── phone validation
+│   │
+│   ├── member.py
+│   │     ├── inherits Person
+│   │     ├── weight validation
+│   │     ├── height validation
+│   │     └── goal validation
+│   │
+│   ├── coach.py
+│   │     ├── inherits Person
+│   │     ├── specialization validation
+│   │     ├── experience validation
+│   │     └── members_list logic
+│   │
+│   └── program.py
+│         ├── program_id
+│         ├── goal validation
+│         ├── difficulty validation
+│         └── assigned_members list
+
+STEP 3 — UTILS LAYER
+│
+├── utils/
+│   ├── validator.py
+│   │     ├── name validation
+│   │     ├── phone regex
+│   │     ├── goal validation
+│   │     └── difficulty validation
+│   │
+│   ├── id_generator.py
+│   │     ├── generate_member_id()
+│   │     ├── generate_coach_id()
+│   │     └── generate_program_id()
+│   │
+│   └── file_manager.py
+│         ├── load_json()
+│         ├── save_json()
+│         └── exception handling
+
+STEP 4 — CONTROLLERS (Business Logic)
+│
+├── controllers/
+│   ├── member_controller.py
+│   │     ├── add_member()
+│   │     ├── update_member()
+│   │     ├── delete_member()
+│   │     ├── assign_program()
+│   │     └── assign_coach()
+│   │
+│   ├── coach_controller.py
+│   │     ├── add_coach()
+│   │     ├── delete_coach()
+│   │     └── list_coaches()
+│   │
+│   └── report_controller.py
+│         ├── count_members()
+│         ├── members_per_coach()
+│         └── members_per_program()
+
+STEP 5 — MAIN APPLICATION ENTRY
+│
+├── main.py
+│     ├── create Tk root
+│     ├── load login_view
+│     └── start mainloop()
+
+STEP 6 — VIEWS (Tkinter UI)
+│
+├── views/
+│   ├── login_view.py
+│   │     ├── username entry
+│   │     ├── password entry
+│   │     └── login button
+│   │
+│   ├── dashboard_view.py
+│   │     ├── sidebar menu
+│   │     └── dynamic content frame
+│   │
+│   ├── member_view.py
+│   │     ├── form entries
+│   │     ├── combobox for goal
+│   │     ├── treeview display
+│   │     └── buttons (Add/Update/Delete)
+│   │
+│   ├── coach_view.py
+│   │     ├── add coach form
+│   │     └── treeview display
+│   │
+│   └── program_view.py
+│         ├── add program
+│         ├── assign member
+│         └── treeview display
+
+STEP 7 — TESTING PHASE
+│
+├── Test invalid phone
+├── Test duplicate ID
+├── Test wrong weight
+├── Test assigning same member twice
+├── Test deleting assigned member
+├── Test empty JSON file
+└── Test corrupted JSON file

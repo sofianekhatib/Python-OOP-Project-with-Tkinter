@@ -1,0 +1,139 @@
+Architecture Rules
+    No global variables
+    No business logic inside views
+    No direct JSON manipulation inside view
+    All logic handled in controller
+    Validation handled in util
+    Encapsulation required (private attributes)
+    Use try/except for every risky operation
+
+PERSON CLASS CONSTRAINTS
+    Attributes
+        id
+        first_name
+        last_name      
+        phone
+    Constraints
+        ID      
+           Must be unique across system      
+           Cannot be empty       
+           Must follow format:      
+               Member → MEM001      
+               Coach → COA001
+    
+        First Name / Last Name
+            Minimum 2 characters           
+            Only letters allowed           
+            No numbers           
+            No special characters           
+    
+        Phone
+            Must follow Moroccan format           
+            Start with: 06 or 07           
+            Exactly 10 digits 
+
+MEMBER CLASS CONSTRAINTS(Inherits from Person)
+
+       Additional Attributes
+            weight
+            height
+            goal
+       
+       Weight
+            Must be numeric
+            Between 30 and 200 kg
+       
+       Height
+       
+            Must be numeric     
+            Between 100 and 220 cm
+       
+       Goal
+            Allowed values only:
+                "Bulking"
+                "Cutting"
+                "Strength"
+                     
+COACH CLASS CONSTRAINTS(Inherits from Person)        
+        Additional Attributes
+            specialization          
+            years_experience          
+            members_list
+        
+        Specialization
+            Cannot be empty            
+            Minimum 3 characters  
+            Letters only
+        
+        Years of Experience 
+            Must be integer 
+            = 0
+            Cannot exceed 50
+        
+        Members List
+            Cannot contain duplicate members  
+            A member can only have ONE coach
+            When member deleted → automatically removed from coach list
+
+PROGRAM CLASS CONSTRAINTS
+        Attributes
+            program_id          
+            goal
+            difficulty
+            assigned_members
+        
+        Program ID
+            Must be unique
+            Auto-generated: PRO001 
+            Cannot be edited manually
+            
+        Goal
+            Must match:
+                "Bulking"
+                "Cutting"
+                "Strength"
+            Must be compatible with Member goal.
+        
+        Difficulty
+            Allowed values:
+                "Beginner"              
+                "Intermediate"              
+                "Advanced"
+        
+        Assigned Members
+            Cannot exceed 50 members 
+            No duplicate members
+            When member deleted → auto remove from program
+
+CONTROLLER LOGIC CONSTRAINTS
+        When Adding Member
+            Validate all fields
+            Check duplicate phone
+            Generate unique ID
+            Save automatically to JSON
+
+        When Deleting Member
+            Remove from:
+                Coach members list
+                Program assigned_members list
+            Update JSON
+        
+        When Assigning Program
+            Member must exist
+            Program must exist
+            Member must not already have program
+            Goals must match
+        
+        When Assigning Coach
+            Coach must exist
+            Member must not already have coach
+            Add member to coach list
+
+UI CONSTRAINTS
+        No direct object creation inside view
+            All button actions call controller
+            Treeview must refresh after every update
+            Use messagebox for:
+                Success
+                Error
+            Confirmation

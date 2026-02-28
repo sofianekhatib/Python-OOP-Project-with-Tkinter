@@ -1,0 +1,32 @@
+GYM_SYSTEM/
+│
+├── main.py
+│
+├── models/
+│   ├── person.py
+│   ├── member.py
+│   ├── coach.py
+│   ├── program.py
+│
+├── controllers/
+│   ├── auth_controller.py
+│   ├── member_controller.py
+│   ├── coach_controller.py
+│   └── report_controller.py
+│
+├── views/
+│   ├── login_view.py
+│   ├── dashboard_view.py
+│   ├── member_view.py
+│   ├── coach_view.py
+│   ├── program_view.py
+│
+├── utils/
+│   ├── validator.py
+│   ├── id_generator.py
+│   └── file_manager.py
+│
+└── database/
+    ├── members.json
+    ├── coaches.json
+    └── programs.json
