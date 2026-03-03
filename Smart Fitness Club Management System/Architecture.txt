@@ -129,7 +129,7 @@ CONTROLLER LOGIC CONSTRAINTS
             Member must not already have coach
             Add member to coach list
 
-UI CONSTRAINTS
+GUI CONSTRAINTS
         No direct object creation inside view
             All button actions call controller
             Treeview must refresh after every update
