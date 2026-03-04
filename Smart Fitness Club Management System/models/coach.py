@@ -17,12 +17,9 @@ class Coach(Person):
     def setYears_experience(self , years_experience):
         self.validator.validateYears(years_experience)
         self.__years_experience = years_experience
-    
-    def validateMembersList(self , id):
-        if id in self.__members_list:
-            raise ValueError("This is is duplicated")
         
-
+    def AddMember(self , member):
+        self.__members_list.append(member)
     def __str__(self):
         return super().__str__() + f"- Specialization : {self.getSpecialization()} - Years of experience : {self.getYears_experience()}"
     

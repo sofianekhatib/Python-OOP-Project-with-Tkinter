@@ -32,7 +32,7 @@ levels = ["Beginner", "Intermediate", "Advanced"]
 
 programs = []
 
-for _ in range(10):
+for _ in range(20):
     goalschoice = random.choice(goals)
     levelschoice = random.choice(levels)
     p = Program(goalschoice , levelschoice)
